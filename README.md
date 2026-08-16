@@ -1,6 +1,6 @@
 # Portfolio — José Marques
 
-Site de portfólio pessoal de **José Marques**, DevOps & Infraestrutura Cloud-Native. Apresenta experiência profissional, serviços, estudos de caso e uma página de bastidores ("Under the Hood") com decisões de arquitetura.
+Site de portfólio pessoal de **José Marques**, DevOps & Infraestrutura Cloud-Native. Apresenta experiência profissional, serviços, estudos de caso e uma página de bastidores ("Arquitetura") com decisões de arquitetura.
 
 Produção: <https://portfolio.nexuno.com.br>
 
@@ -22,8 +22,8 @@ src/
 │   ├── layout.tsx        # layout raiz (fonte Inter, metadados, Header e Footer)
 │   ├── page.tsx          # página inicial — compõe as seções
 │   ├── globals.css       # Tailwind + variáveis de cor do tema
-│   └── under-the-hood/
-│       └── page.tsx      # "Under the Hood" — decisões de arquitetura em detalhe
+│   └── arquitetura/
+│       └── page.tsx      # "Arquitetura" — decisões de arquitetura em detalhe
 ├── components/
 │   ├── Header.tsx        # navegação fixa (com menu mobile)
 │   ├── Hero.tsx          # seção de abertura (nome, título, chamada, CTAs)
@@ -31,7 +31,7 @@ src/
 │   ├── Servicos.tsx      # grade de serviços
 │   ├── Cases.tsx         # estudos de caso em acordeão
 │   ├── Contato.tsx       # cards de contato (e-mail, LinkedIn, GitHub)
-│   └── Footer.tsx        # rodapé com links sociais e "Under the Hood"
+│   └── Footer.tsx        # rodapé com links sociais e "Arquitetura"
 └── content/              # reservado para conteúdo futuro (vazio por ora)
 ```
 

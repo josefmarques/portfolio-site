@@ -41,10 +41,10 @@ export default function Footer() {
             </a>
           ))}
           <Link
-            href="/under-the-hood"
+            href="/arquitetura"
             className="text-sm text-foreground/60 transition-colors hover:text-foreground"
           >
-            Under the Hood ↗
+            Arquitetura ↗
           </Link>
         </div>
       </div>

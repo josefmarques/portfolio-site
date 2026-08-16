@@ -38,7 +38,7 @@ const decisoes = [
   },
 ];
 
-export default function UnderTheHood() {
+export default function Arquitetura() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-16">
       <span className="inline-flex items-center rounded-full border border-accent bg-accent/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-accent">
