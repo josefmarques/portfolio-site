@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — José Marques
 
-## Getting Started
+Site de portfólio pessoal de **José Marques**, DevOps & Infraestrutura Cloud-Native. Apresenta experiência profissional, serviços, estudos de caso e uma página de bastidores ("Under the Hood") com decisões de arquitetura.
 
-First, run the development server:
+Produção: <https://portfolio.nexuno.com.br>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack técnica
+
+- **Next.js 14** (App Router) — framework React
+- **TypeScript**
+- **Tailwind CSS 3** — estilização
+- **lucide-react** — ícones
+- **next/font/google** — fonte Inter
+
+Node.js: a imagem Docker usa **Node 20** (alpine); localmente, qualquer versão >= 18.17 (mínimo exigido pelo Next.js 14) funciona.
+
+## Estrutura do projeto
+
+```
+src/
+├── app/
+│   ├── layout.tsx        # layout raiz (fonte Inter, metadados, Header e Footer)
+│   ├── page.tsx          # página inicial — compõe as seções
+│   ├── globals.css       # Tailwind + variáveis de cor do tema
+│   └── under-the-hood/
+│       └── page.tsx      # "Under the Hood" — decisões de arquitetura em detalhe
+├── components/
+│   ├── Header.tsx        # navegação fixa (com menu mobile)
+│   ├── Hero.tsx          # seção de abertura (nome, título, chamada, CTAs)
+│   ├── Sobre.tsx         # "Sobre" + card sticky "Stack & Ferramentas"
+│   ├── Servicos.tsx      # grade de serviços
+│   ├── Cases.tsx         # estudos de caso em acordeão
+│   ├── Contato.tsx       # cards de contato (e-mail, LinkedIn, GitHub)
+│   └── Footer.tsx        # rodapé com links sociais e "Under the Hood"
+└── content/              # reservado para conteúdo futuro (vazio por ora)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Rodando localmente
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+git clone https://github.com/josefmarques/portfolio-site.git
+cd portfolio-site
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Acesse <http://localhost:3000>.
 
-## Learn More
+Não há variáveis de ambiente obrigatórias — o `.env.example` está vazio.
 
-To learn more about Next.js, take a look at the following resources:
+## Build e Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O projeto é **containerizado** via Dockerfile multi-stage (dependências → build → runtime), tirando proveito do `output: "standalone"` do Next.js para gerar uma imagem enxuta contendo apenas o necessário para produção. O container roda como usuário não-root na porta 3000.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Fluxo de deploy (em nível conceitual):
 
-## Deploy on Vercel
+1. **Build da imagem** Docker a partir do Dockerfile.
+2. **Publicação** da imagem em um registry privado.
+3. **Atualização da tag** da imagem no manifesto do Deployment.
+4. **GitOps** — o ArgoCD detecta a mudança no repositório e aplica o novo estado automaticamente.
+5. **Exposição** — roteamento via Kubernetes Gateway API, com a borda protegida por Cloudflare Tunnel.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+O ambiente de produção roda em um **cluster Kubernetes próprio (K3s)**, gerenciado 100% via GitOps.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Convenção de versionamento de imagem
+
+A tag da imagem é incrementada **manualmente** a cada deploy (`v1`, `v2`, `v3`, ...). Para que um novo deploy aconteça, o `Deployment` no Kubernetes precisa ser atualizado com a nova tag — cada versão recebe uma tag nova, e a imagem anterior não é sobrescrita.
+
+## Licença e autoria
+
+Autor: **José Marques**.
+
+O conteúdo do site (textos, casos e demais materiais) é **autoral** e não deve ser reutilizado sem permissão. O código-fonte, porém, fica disponível como referência e para estudo.
