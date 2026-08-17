@@ -51,7 +51,7 @@ export default function Arquitetura() {
 
       <p className="mt-4 max-w-2xl leading-relaxed text-foreground/60">
         Este não é um case de resolução de incidente — é a demonstração de como
-        projeto arquitetura completa, do design à operação em produção.
+        projetei uma arquitetura completa, do design à operação em produção.
       </p>
 
       <section className="mt-16">

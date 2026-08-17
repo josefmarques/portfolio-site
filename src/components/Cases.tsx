@@ -108,6 +108,32 @@ const cases = [
       },
     ],
   },
+  {
+    numero: "05",
+    titulo: "Padronização de pipelines CI/CD para múltiplos projetos",
+    blocos: [
+      {
+        label: "O Problema",
+        texto:
+          "Boa parte dos projetos de desenvolvimento de uma organização não tinha pipeline de CI/CD configurada — o deploy era feito manualmente via scripts locais. Os poucos projetos que já tinham alguma pipeline exigiam execução manual a cada alteração. Na prática, uma simples atualização de código dependia de abertura de chamado, fila de atendimento e execução manual por outra pessoa — um processo lento, sujeito a erro humano e que tirava autonomia do desenvolvedor sobre o próprio trabalho.",
+      },
+      {
+        label: "O Diagnóstico",
+        texto:
+          "O gargalo não era técnico isoladamente — era a ausência de um padrão reutilizável de pipeline que os times de desenvolvimento pudessem simplesmente herdar, sem precisar reinventar a esteira de CI/CD a cada novo projeto.",
+      },
+      {
+        label: "A Solução",
+        texto:
+          "Criei um conjunto de templates de pipeline reutilizáveis (GitLab CI), com build de imagem via Kaniko, cobrindo múltiplos ambientes (dev, homologação e produção) com regras de gatilho distintas por branch/tag. O deploy é integrado diretamente com o repositório de manifestos Kubernetes, aplicando a nova versão automaticamente após o build, e encerrando com uma etapa de validação HTTP que confirma se a aplicação subiu corretamente. Qualquer novo projeto passou a poder adotar o mesmo padrão apenas referenciando os templates centrais, sem reescrever a esteira do zero.",
+      },
+      {
+        label: "O Resultado",
+        texto:
+          "O que antes dependia de abertura de chamado, espera na fila de atendimento e execução manual por terceiros — um processo que levava horas ou dias — passou a acontecer automaticamente a cada push. O desenvolvedor agora visualiza e confirma o resultado do próprio deploy em minutos, sem intermediários, com redução direta de erro humano no processo.",
+      },
+    ],
+  },
 ];
 
 export default function Cases() {
