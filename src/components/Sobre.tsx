@@ -38,7 +38,7 @@ export default function Sobre() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent underline underline-offset-2 transition-colors hover:text-accent/80"
-              >https://nexuno.com.br/ - Usuário: visitante@nexuno.com.br - Senha: Visitante@2026</a>): uma plataforma SaaS multi-tenant que
+              >nexuno.com.br</a>): uma plataforma SaaS multi-tenant que
               projetei, implementei e administro. Atualmente funciona como ambiente de
               desenvolvimento avançado (Landing Page e Tenants com ambiente DEV para testes de novas realeses e PROD para posterior lançamento efetivamente em produção) — já rodando dois tenants reais com
               sistemas de PDV e financeiro. É meu laboratório pessoal de
@@ -48,6 +48,26 @@ export default function Sobre() {
               frontend em Next.js, banco PostgreSQL 17 com isolamento lógico por
               tenant, e observabilidade completa com SigNoz e OpenTelemetry.
             </p>
+
+            <div className="rounded-lg border border-accent/20 bg-accent/5 px-4 py-3">
+              <p className="text-sm font-medium text-foreground">
+                Acesso de demonstração (somente leitura):
+              </p>
+              <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-foreground/80">
+                <span>
+                  Usuário:{" "}
+                  <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-accent">
+                    visitante@nexuno.com.br
+                  </code>
+                </span>
+                <span>
+                  Senha:{" "}
+                  <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-accent">
+                    Visitante@2026
+                  </code>
+                </span>
+              </div>
+            </div>
             <p>
               É nele que testo, erro e resolvo antes de aplicar qualquer decisão
               de arquitetura em ambiente crítico — e é o que me permite debugar um
