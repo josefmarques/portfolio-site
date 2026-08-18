@@ -34,11 +34,11 @@ export default function Sobre() {
             <p>
               Para levar essa visão além da operação e para o design de
               arquitetura, criei a Nexuno (<a
-                href="https://nexuno.com.br/"
+                href="https://dev.nexuno.com.br/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent underline underline-offset-2 transition-colors hover:text-accent/80"
-              >nexuno.com.br</a>): uma plataforma SaaS multi-tenant que
+              >dev.nexuno.com.br</a>): uma plataforma SaaS multi-tenant que
               projetei, implementei e administro. Atualmente funciona como ambiente de
               desenvolvimento avançado (Landing Page e Tenants com ambiente DEV para testes de novas realeses e PROD para posterior lançamento efetivamente em produção) — já rodando dois tenants reais com
               sistemas de PDV e financeiro. É meu laboratório pessoal de
@@ -51,7 +51,7 @@ export default function Sobre() {
 
             <div className="rounded-lg border border-accent/20 bg-accent/5 px-4 py-3">
               <p className="text-sm font-medium text-foreground">
-                Acesso de demonstração (somente leitura):
+                Acesso de demonstração (ambiente dev, somente leitura):
               </p>
               <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-foreground/80">
                 <span>
