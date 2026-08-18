@@ -38,7 +38,7 @@ export default function Sobre() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent underline underline-offset-2 transition-colors hover:text-accent/80"
-              >https://nexuno.com.br/</a>): uma plataforma SaaS multi-tenant que
+              >https://nexuno.com.br/ - Usuário: visitante@nexuno.com.br - Senha: Visitante@2026</a>): uma plataforma SaaS multi-tenant que
               projetei, implementei e administro. Atualmente funciona como ambiente de
               desenvolvimento avançado (Landing Page e Tenants com ambiente DEV para testes de novas realeses e PROD para posterior lançamento efetivamente em produção) — já rodando dois tenants reais com
               sistemas de PDV e financeiro. É meu laboratório pessoal de
