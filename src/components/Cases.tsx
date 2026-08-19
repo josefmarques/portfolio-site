@@ -134,6 +134,33 @@ const cases = [
       },
     ],
   },
+  {
+    numero: "06",
+    titulo:
+      "Migração de Infraestrutura Baseada em VMs para Kubernetes On-Premise em Alta Disponibilidade",
+    blocos: [
+      {
+        label: "O Problema",
+        texto:
+          "O ambiente dependia exclusivamente de máquinas virtuais dedicadas para cada nova aplicação, gerando alto consumo de recursos físicos (VM sprawl), desperdício de processamento e dificuldade de escalar serviços individualmente. Não havia orquestração de containers.",
+      },
+      {
+        label: "O Diagnóstico",
+        texto:
+          "O padrão de 'uma VM por aplicação' era a causa raiz do desperdício: cada serviço exigia uma máquina dedicada com sistema operacional completo, mesmo consumindo apenas uma fração dos recursos. Além disso, o Rancher single-node em Docker representava um ponto único de falha, sem tolerância a falhas para orquestrar múltiplos clusters de forma resiliente.",
+      },
+      {
+        label: "A Solução",
+        texto:
+          "Implementação de um cluster Kubernetes local utilizando RKE2. A arquitetura evoluiu de um Rancher single-node em Docker para um cluster em Alta Disponibilidade (HA) distribuído em 3 Máquinas Virtuais (Control Plane/Workers). A borda foi configurada com um Load Balancer NGINX (via TCP Stream) roteando o tráfego para a API do Kubernetes e para a interface do Rancher. A partir daí, múltiplos clusters puderam ser criados para segmentar ambientes (dev, hom, prod, ferramentas).",
+      },
+      {
+        label: "O Resultado",
+        texto:
+          "Redução a zero na necessidade de criar novas VMs para hospedar aplicações, com otimização drástica do uso de recursos ao empacotar múltiplos serviços nos clusters. A disponibilidade e a resiliência das aplicações aumentaram, e o uso de HPA (Horizontal Pod Autoscaler) passou a permitir escalar cada aplicação dinamicamente conforme a demanda de tráfego.",
+      },
+    ],
+  },
 ];
 
 export default function Cases() {

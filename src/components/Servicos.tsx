@@ -4,6 +4,7 @@ import {
   Boxes,
   GitBranch,
   Network,
+  Server,
   ShieldCheck,
 } from "lucide-react";
 
@@ -19,6 +20,12 @@ const servicos = [
     titulo: "Migração para Kubernetes",
     descricao:
       "Saia de servidores tradicionais para uma arquitetura cloud-native, com Gateway API e GitOps desde o primeiro dia.",
+  },
+  {
+    icon: Server,
+    titulo: "Kubernetes On-Premise & Rancher HA",
+    descricao:
+      "Instalação, configuração e gerenciamento de clusters Kubernetes (RKE2/K3s) em ambientes locais ou bare-metal. Implementação de orquestração com Rancher em Alta Disponibilidade (HA), balanceamento de carga e migração de cargas de trabalho legadas em VMs para containers.",
   },
   {
     icon: GitBranch,
